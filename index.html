@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Project Gallery</h1>
+        <p class="subtitle">A collection of experiments, tools, and prototypes</p>
+    </header>
+
+    <main class="gallery">
+        <!-- ============================================
+             HOW TO ADD A NEW PROJECT:
+             1. Copy one <article class="card"> block
+             2. Replace the image src with your screenshot
+             3. Update the title, description, and link
+             4. Add appropriate tags
+        ============================================ -->
+
+        <article class="card">
+            <a href="https://your-project.lovable.dev" target="_blank" rel="noopener">
+                <div class="card-image">
+                    <img src="images/placeholder.svg" alt="Project One screenshot">
+                </div>
+                <div class="card-content">
+                    <div class="card-tags">
+                        <span class="tag">Lovable</span>
+                        <span class="tag">React</span>
+                    </div>
+                    <h2>Project One</h2>
+                    <p>A brief description of what this project does and why it's interesting.</p>
+                </div>
+            </a>
+        </article>
+
+        <article class="card">
+            <a href="https://your-project.replit.app" target="_blank" rel="noopener">
+                <div class="card-image">
+                    <img src="images/placeholder.svg" alt="Project Two screenshot">
+                </div>
+                <div class="card-content">
+                    <div class="card-tags">
+                        <span class="tag">Replit</span>
+                        <span class="tag">Python</span>
+                    </div>
+                    <h2>Project Two</h2>
+                    <p>A brief description of what this project does and why it's interesting.</p>
+                </div>
+            </a>
+        </article>
+
+        <article class="card">
+            <a href="https://your-html-project.onrender.com" target="_blank" rel="noopener">
+                <div class="card-image">
+                    <img src="images/placeholder.svg" alt="Project Three screenshot">
+                </div>
+                <div class="card-content">
+                    <div class="card-tags">
+                        <span class="tag">v0</span>
+                        <span class="tag">HTML</span>
+                    </div>
+                    <h2>Project Three</h2>
+                    <p>A brief description of what this project does and why it's interesting.</p>
+                </div>
+            </a>
+        </article>
+
+        <article class="card">
+            <a href="https://example.com" target="_blank" rel="noopener">
+                <div class="card-image">
+                    <img src="images/placeholder.svg" alt="Project Four screenshot">
+                </div>
+                <div class="card-content">
+                    <div class="card-tags">
+                        <span class="tag">Claude</span>
+                        <span class="tag">Tool</span>
+                    </div>
+                    <h2>Project Four</h2>
+                    <p>A brief description of what this project does and why it's interesting.</p>
+                </div>
+            </a>
+        </article>
+
+        <!-- Add more cards here -->
+
+    </main>
+
+    <footer>
+        <p>Last updated: January 2025</p>
+    </footer>
+</body>
+</html>
