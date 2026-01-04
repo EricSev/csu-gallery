@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maritime Safety Education | Signal Mutual × Columbia Southern University</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Signal Mutual Colors */
+            --signal-navy: #0E0D3D;
+            --signal-accent: #7E99AA;
+            --signal-steel: #4A6572;
+            
+            /* CSU Colors */
+            --csu-navy: #002855;
+            --csu-gold: #B8860B;
+            
+            /* Combined Palette */
+            --primary: #0E0D3D;
+            --secondary: #002855;
+            --accent: #B8860B;
+            --accent-light: #D4A84B;
+            --steel: #7E99AA;
+            --light-bg: #F8F9FA;
+            --white: #FFFFFF;
+            --text-dark: #1a1a2e;
+            --text-muted: #5A6A7A;
+            
+            /* Typography */
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header / Navigation */
+        .header {
+            background: var(--white);
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-group img {
+            height: 44px;
+            width: auto;
+        }
+
+        .logo-divider {
+            width: 1px;
+            height: 36px;
+            background: #d1d5db;
+        }
+
+        .header-cta {
+            background: var(--accent);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s ease;
+        }
+
+        .header-cta:hover {
+            background: var(--accent-light);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 80px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .launch-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .launch-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.2); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            max-width: 800px;
+            animation: fadeInUp 0.6s ease-out 0.1s both;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 640px;
+            margin-bottom: 32px;
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.6s ease-out 0.3s both;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(184, 134, 11, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Endorsement Bar */
+        .endorsement-bar {
+            background: var(--light-bg);
+            border-bottom: 1px solid #e5e7eb;
+            padding: 32px 0;
+        }
+
+        .endorsement-content {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .endorsement-quote {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .endorsement-quote blockquote {
+            font-size: 17px;
+            color: var(--text-dark);
+            font-style: italic;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .endorsement-quote cite {
+            font-style: normal;
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .endorsement-stats {
+            display: flex;
+            gap: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: var(--font-display);
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Pathways Section */
+        .pathways {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: clamp(28px, 4vw, 40px);
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pathways-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .pathway-card {
+            background: var(--white);
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 32px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .pathway-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .pathway-card.featured {
+            border-color: var(--accent);
+            background: linear-gradient(180deg, rgba(184, 134, 11, 0.03) 0%, var(--white) 100%);
+        }
+
+        .pathway-badge {
+            position: absolute;
+            top: -12px;
+            right: 24px;
+            background: var(--accent);
+            color: var(--white);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pathway-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--light-bg);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .pathway-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--primary);
+        }
+
+        .pathway-card h3 {
+            font-family: var(--font-display);
+            font-size: 22px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .pathway-duration {
+            font-size: 14px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .pathway-card p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .pathway-features {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .pathway-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 14px;
+            color: var(--text-dark);
+        }
+
+        .pathway-features li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .pathway-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--secondary);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .pathway-link:hover {
+            color: var(--accent);
+        }
+
+        .pathway-link svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.2s ease;
+        }
+
+        .pathway-link:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* Courses Section */
+        .courses {
+            background: var(--primary);
+            color: var(--white);
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .courses::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .courses .section-header h2 {
+            color: var(--white);
+        }
+
+        .courses .section-header p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .course-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+            padding: 28px;
+            transition: all 0.3s ease;
+        }
+
+        .course-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .course-code {
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .course-card h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .course-card p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.5;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
+            background: var(--light-bg);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        @media (max-width: 900px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .benefit-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .benefit-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--white);
+        }
+
+        .benefit-value {
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .benefit-card h4 {
+            font-size: 18px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .benefit-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* Workforce Section */
+        .workforce {
+            padding: 80px 0;
+        }
+
+        .workforce-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        @media (max-width: 900px) {
+            .workforce-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .workforce-text h2 {
+            font-family: var(--font-display);
+            font-size: clamp(28px, 4vw, 36px);
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .workforce-text p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        .workforce-text p strong {
+            color: var(--text-dark);
+        }
+
+        .workforce-visual {
+            background: var(--light-bg);
+            border-radius: 16px;
+            padding: 40px;
+            position: relative;
+        }
+
+        .pipeline-step {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 0;
+            border-bottom: 1px dashed #d1d5db;
+        }
+
+        .pipeline-step:last-child {
+            border-bottom: none;
+        }
+
+        .pipeline-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .pipeline-step h4 {
+            font-size: 16px;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .pipeline-step p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background: var(--light-bg);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 24px;
+            text-align: left;
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            font-family: var(--font-body);
+        }
+
+        .faq-question:hover {
+            background: var(--light-bg);
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--accent);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-answer-inner {
+            padding: 0 24px 24px;
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: var(--font-display);
+            font-size: clamp(28px, 4vw, 40px);
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 500px;
+            margin: 0 auto 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Form Section */
+        .form-section {
+            padding: 80px 0;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            border: 2px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 40px;
+        }
+
+        .form-container h3 {
+            font-family: var(--font-display);
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .form-container > p {
+            color: var(--text-muted);
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: var(--font-body);
+            transition: border-color 0.2s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        @media (max-width: 500px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-submit {
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        .form-disclaimer {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 16px;
+            text-align: center;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 48px 0 24px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .footer-logos {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .footer-logos img {
+            height: 40px;
+            width: auto;
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
+        }
+
+        .footer-contact p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 4px;
+        }
+
+        .footer-contact a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .footer-contact a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-bottom p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-accreditation {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .footer-accreditation img {
+            height: 48px;
+            width: auto;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .hero {
+                padding: 60px 0 80px;
+            }
+
+            .endorsement-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .endorsement-stats {
+                justify-content: center;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo-group">
+                    <img src="https://www.columbiasouthern.edu/media/campm3vj/csu-logo-horizontal.png" alt="Columbia Southern University">
+                    <div class="logo-divider"></div>
+                    <img src="https://www.signalmutual.com/media/cerhnwrd/signal_primary_rgb.png" alt="Signal Mutual">
+                </div>
+                <a href="#enroll" class="header-cta">Request Information</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="launch-badge">Now Enrolling: October 2025</div>
+                <h1>Maritime Safety Education<br><span>Built for the Industry</span></h1>
+                <p class="hero-subtitle">The first occupational safety program developed with shipyard leaders. Earn credentials that reflect what maritime employers actually need from safety professionals.</p>
+                <div class="hero-cta-group">
+                    <a href="#enroll" class="btn-primary">
+                        Start Your Application
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                    </a>
+                    <a href="#pathways" class="btn-secondary">View Programs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Endorsement Bar -->
+    <section class="endorsement-bar">
+        <div class="container">
+            <div class="endorsement-content">
+                <div class="endorsement-quote">
+                    <blockquote>"The shortage of qualified safety professionals familiar with maritime operations has been a persistent challenge. This curriculum was designed with direct input from our member companies to address exactly what employers need."</blockquote>
+                    <cite>Signal Mutual Safety Resources Team</cite>
+                </div>
+                <div class="endorsement-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">210+</div>
+                        <div class="stat-label">Signal Members</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">98.6%</div>
+                        <div class="stat-label">Retention Rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pathways Section -->
+    <section class="pathways" id="pathways">
+        <div class="container">
+            <div class="section-header">
+                <h2>Two Pathways to Maritime Safety Expertise</h2>
+                <p>Choose the credential that matches your career goals and timeline</p>
+            </div>
+            <div class="pathways-grid">
+                <!-- Certificate -->
+                <div class="pathway-card">
+                    <div class="pathway-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    </div>
+                    <h3>Maritime Safety Certificate</h3>
+                    <div class="pathway-duration">4 Courses · Stackable Credential</div>
+                    <p>Fast-track your expertise with focused maritime safety training. Ideal for experienced professionals seeking specialized credentials.</p>
+                    <ul class="pathway-features">
+                        <li>Complete in as few as 2 terms</li>
+                        <li>All credits transfer to bachelor's degree</li>
+                        <li>Industry-specific OSHA applications</li>
+                        <li>Immediate career advancement</li>
+                    </ul>
+                    <a href="#enroll" class="pathway-link">
+                        Learn More
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                    </a>
+                </div>
+                <!-- Bachelor's -->
+                <div class="pathway-card featured">
+                    <div class="pathway-badge">Most Popular</div>
+                    <div class="pathway-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="m9 10 2 2 4-4"/></svg>
+                    </div>
+                    <h3>B.S. in Occupational Safety & Health</h3>
+                    <div class="pathway-duration">Maritime Safety Concentration</div>
+                    <p>The complete pathway from safety specialist to safety leadership. Combines comprehensive OSH education with maritime specialization.</p>
+                    <ul class="pathway-features">
+                        <li>BCSP Qualified Academic Program</li>
+                        <li>All 4 maritime courses included</li>
+                        <li>Pathway to CSP certification</li>
+                        <li>Leadership and management training</li>
+                        <li>Graduate degree eligible</li>
+                    </ul>
+                    <a href="#enroll" class="pathway-link">
+                        Learn More
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses" id="courses">
+        <div class="container">
+            <div class="section-header">
+                <h2>Maritime Safety Courses</h2>
+                <p>Four specialized courses developed with Signal Mutual member input</p>
+            </div>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-code">OSH 2306</div>
+                    <h4>Maritime Safety Standards</h4>
+                    <p>OSHA maritime standards, shipyard competent person requirements, and regulatory compliance for marine operations.</p>
+                </div>
+                <div class="course-card">
+                    <div class="course-code">OSH 3313</div>
+                    <h4>Introduction to Maritime Workers Compensation</h4>
+                    <p>Longshore Act fundamentals, claims management, and the intersection of safety programs with workers compensation outcomes.</p>
+                </div>
+                <div class="course-card">
+                    <div class="course-code">OSH 3314</div>
+                    <h4>Special Topics in Maritime Industry</h4>
+                    <p>Confined space entry, hot work, crane operations, and emerging hazards specific to shipyard and terminal environments.</p>
+                </div>
+                <div class="course-card">
+                    <div class="course-code">OSH 4314</div>
+                    <h4>Materials Handling in Maritime Industry</h4>
+                    <p>Rigging, lifting operations, cargo handling, and equipment safety for waterfront and ship repair operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2>Signal Mutual Member Benefits</h2>
+                <p>Exclusive advantages for members, employees, and their families</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <div class="benefit-value">10%</div>
+                    <h4>Tuition Discount</h4>
+                    <p>Applied automatically to all courses and programs</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                    </div>
+                    <div class="benefit-value">$1,000+</div>
+                    <h4>Annual Scholarship</h4>
+                    <p>Exclusive Signal Mutual scholarship opportunities</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <div class="benefit-value">$0</div>
+                    <h4>Application Fee</h4>
+                    <p>Waived for all Signal members and families</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workforce Development Section -->
+    <section class="workforce">
+        <div class="container">
+            <div class="workforce-content">
+                <div class="workforce-text">
+                    <h2>Part of a Larger Initiative</h2>
+                    <p>This degree program is one component of Signal Mutual's comprehensive workforce development initiative. In partnership with CTR and member shipyards, we're building pathways that take workers from trades training through safety leadership.</p>
+                    <p><strong>Members Helping Members.</strong> By investing in maritime-specific education, Signal members strengthen the entire industry's safety capacity while developing the next generation of safety professionals.</p>
+                    <p>Whether you're a safety specialist seeking advancement, a trades worker transitioning to safety, or new to the maritime industry, this program provides the knowledge and credentials employers value.</p>
+                    <a href="https://www.signalmutual.com/safety/about-us/" class="pathway-link" target="_blank">
+                        Learn about Signal Safety Resources
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                    </a>
+                </div>
+                <div class="workforce-visual">
+                    <div class="pipeline-step">
+                        <div class="pipeline-number">1</div>
+                        <div>
+                            <h4>Trades Training</h4>
+                            <p>Skills development for shipyard work</p>
+                        </div>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="pipeline-number">2</div>
+                        <div>
+                            <h4>Safety Certificate</h4>
+                            <p>Maritime-specific safety credentials</p>
+                        </div>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="pipeline-number">3</div>
+                        <div>
+                            <h4>Bachelor's Degree</h4>
+                            <p>Full OSH degree with maritime concentration</p>
+                        </div>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="pipeline-number">4</div>
+                        <div>
+                            <h4>Safety Leadership</h4>
+                            <p>Management roles and graduate studies</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Answers for maritime safety professionals</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How does this program prepare me for maritime safety roles?
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            The curriculum was developed with direct input from Signal Mutual member companies representing shipyards, terminals, and maritime contractors. Each course addresses specific challenges these employers identified: OSHA maritime standards, workers compensation integration, confined space and hot work operations, and materials handling. You'll graduate with knowledge that directly applies to shipyard and waterfront safety roles.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I complete courses while working rotating schedules at a shipyard?
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Yes. All courses are 100% online with no set class times. You access coursework when your schedule allows, whether that's between shifts, on days off, or during slower periods. Most students balance full-time employment with coursework successfully. CSU's average student age is 39, and most are working professionals.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What's the difference between the certificate and the full concentration?
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            The Maritime Safety Certificate includes four specialized courses and can be completed in approximately two terms. It's designed for professionals who want maritime-specific credentials quickly. The B.S. in Occupational Safety & Health with Maritime Concentration includes those same four courses within a complete bachelor's degree program, preparing you for management roles and CSP certification eligibility. All certificate credits transfer directly to the bachelor's program if you decide to continue.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How do these courses align with OSHA maritime standards?
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            OSH 2306 (Maritime Safety Standards) directly addresses OSHA's maritime standards including Subpart P (Marine Terminals), Subpart H (Shipyard Employment), and related regulations. The course covers competent person requirements, confined space entry procedures, hot work permitting, and other regulatory requirements specific to maritime operations.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is CSU recognized by the Board of Certified Safety Professionals?
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Yes. CSU's bachelor's and master's programs in occupational safety and health are recognized by the Board of Certified Safety Professionals (BCSP) as Qualified Academic Programs. This recognition means graduates meet the educational requirements for ASP and CSP certification eligibility.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can my employer pay for this program?
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Many Signal Mutual member companies offer tuition assistance for employees pursuing safety education. CSU works with employers on direct billing and deferred payment options. Contact us to discuss arrangements that work with your employer's tuition assistance program.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enrollment Form Section -->
+    <section class="form-section" id="enroll">
+        <div class="container">
+            <div class="form-container">
+                <h3>Request Information</h3>
+                <p>Connect with an enrollment counselor about the Maritime Safety program</p>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="program">Program Interest</label>
+                        <select id="program" name="program" required>
+                            <option value="">Select a program...</option>
+                            <option value="bs-osh-maritime">B.S. in OSH - Maritime Safety Concentration</option>
+                            <option value="maritime-certificate">Maritime Safety Certificate</option>
+                            <option value="ms-osh">M.S. in Occupational Safety & Health</option>
+                            <option value="undecided">Not sure yet</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="employer">Current Employer (optional)</label>
+                        <input type="text" id="employer" name="employer" placeholder="Signal Mutual member company">
+                    </div>
+                    <button type="submit" class="btn-primary form-submit">Submit Request</button>
+                    <p class="form-disclaimer">By submitting, you consent to Columbia Southern University contacting you about educational programs. Your information will not be shared with third parties.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Advance Your Safety Career?</h2>
+            <p>Join the first generation of maritime safety professionals with industry-designed credentials.</p>
+            <div class="cta-buttons">
+                <a href="#enroll" class="btn-primary">Apply Now</a>
+                <a href="tel:8773476050" class="btn-secondary">Call (877) 347-6050</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logos">
+                    <img src="https://www.columbiasouthern.edu/media/campm3vj/csu-logo-horizontal.png" alt="Columbia Southern University">
+                    <img src="https://www.signalmutual.com/media/cerhnwrd/signal_primary_rgb.png" alt="Signal Mutual">
+                </div>
+                <div class="footer-contact">
+                    <p>Questions? Call <a href="tel:8773476050">(877) 347-6050</a></p>
+                    <p>Email: <a href="mailto:LearningPartners@ColumbiaSouthern.edu">LearningPartners@ColumbiaSouthern.edu</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Columbia Southern University. All rights reserved.</p>
+                <div class="footer-accreditation">
+                    <p>Accredited by SACSCOC</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
