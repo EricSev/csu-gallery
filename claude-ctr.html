@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maritime Workforce Initiative | Signal Mutual × CSU × CTR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --signal-navy: #0E0D3D;
+            --signal-accent: #7E99AA;
+            --csu-navy: #002855;
+            --csu-gold: #B8860B;
+            --primary: #0E0D3D;
+            --secondary: #002855;
+            --accent: #B8860B;
+            --accent-light: #D4A84B;
+            --steel: #7E99AA;
+            --light-bg: #F8F9FA;
+            --white: #FFFFFF;
+            --text-dark: #1a1a2e;
+            --text-muted: #5A6A7A;
+            --success: #059669;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--text-dark); line-height: 1.6; background: var(--white); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-group img {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo-divider {
+            width: 1px;
+            height: 32px;
+            background: #d1d5db;
+        }
+
+        .header-badge {
+            background: var(--primary);
+            color: var(--white);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 80px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-content { position: relative; z-index: 1; }
+
+        .initiative-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 5vw, 52px);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+
+        .hero h1 span { color: var(--accent); }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 640px;
+            margin-bottom: 32px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            flex-wrap: wrap;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-stat {
+            text-align: left;
+        }
+
+        .hero-stat-value {
+            font-family: var(--font-display);
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .hero-stat-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 4px;
+        }
+
+        /* Problem Section */
+        .problem {
+            padding: 80px 0;
+            background: var(--light-bg);
+        }
+
+        .problem-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        @media (max-width: 900px) {
+            .problem-content { grid-template-columns: 1fr; gap: 40px; }
+        }
+
+        .problem-text h2 {
+            font-family: var(--font-display);
+            font-size: clamp(28px, 4vw, 36px);
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .problem-text p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        .problem-text p strong { color: var(--text-dark); }
+
+        .problem-visual {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .challenge-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .challenge-item:last-child { border-bottom: none; }
+
+        .challenge-icon {
+            width: 40px;
+            height: 40px;
+            background: #FEE2E2;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .challenge-icon svg {
+            width: 20px;
+            height: 20px;
+            color: #DC2626;
+        }
+
+        .challenge-item h4 {
+            font-size: 16px;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .challenge-item p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Solution Section */
+        .solution {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: clamp(28px, 4vw, 40px);
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-bottom: 64px;
+        }
+
+        @media (max-width: 900px) {
+            .partners-grid { grid-template-columns: 1fr; }
+        }
+
+        .partner-card {
+            background: var(--white);
+            border: 2px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .partner-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .partner-logo {
+            height: 48px;
+            width: auto;
+            margin-bottom: 20px;
+        }
+
+        .partner-card h3 {
+            font-size: 18px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .partner-role {
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .partner-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Model Section */
+        .model {
+            background: var(--primary);
+            color: var(--white);
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .model::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .model .section-header h2 { color: var(--white); }
+        .model .section-header p { color: rgba(255, 255, 255, 0.7); }
+
+        .model-flow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .flow-step {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: 32px 28px;
+            text-align: center;
+            min-width: 200px;
+            max-width: 220px;
+        }
+
+        .flow-number {
+            width: 48px;
+            height: 48px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 auto 16px;
+        }
+
+        .flow-step h4 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .flow-step p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0;
+        }
+
+        .flow-arrow {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .flow-arrow { display: none; }
+            .flow-step { max-width: 100%; width: 100%; }
+        }
+
+        /* Benefits Section */
+        .member-benefits {
+            padding: 80px 0;
+            background: var(--light-bg);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .benefits-grid { grid-template-columns: 1fr; }
+        }
+
+        .benefit-item {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 28px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .benefit-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--white);
+        }
+
+        .benefit-content h4 {
+            font-size: 17px;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .benefit-content p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Proof Section */
+        .proof {
+            padding: 80px 0;
+        }
+
+        .proof-card {
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.05) 0%, rgba(5, 150, 105, 0.02) 100%);
+            border: 2px solid var(--success);
+            border-radius: 16px;
+            padding: 48px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .proof-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .proof-badge {
+            background: var(--success);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .proof-card h3 {
+            font-family: var(--font-display);
+            font-size: 28px;
+            color: var(--primary);
+        }
+
+        .proof-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        @media (max-width: 768px) {
+            .proof-stats { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .proof-stat {
+            text-align: center;
+        }
+
+        .proof-stat-value {
+            font-family: var(--font-display);
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--success);
+            line-height: 1;
+        }
+
+        .proof-stat-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        .proof-description {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.7;
+            border-top: 1px solid #d1d5db;
+            padding-top: 24px;
+        }
+
+        /* Education Section */
+        .education {
+            padding: 80px 0;
+            background: var(--light-bg);
+        }
+
+        .education-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        @media (max-width: 900px) {
+            .education-content { grid-template-columns: 1fr; }
+        }
+
+        .education-text h2 {
+            font-family: var(--font-display);
+            font-size: clamp(28px, 4vw, 36px);
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .education-text p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        .credential-card {
+            background: var(--white);
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+
+        .credential-card h4 {
+            font-size: 17px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .credential-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .csu-benefits {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .csu-benefits h3 {
+            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .csu-benefits h3 img {
+            height: 32px;
+            width: auto;
+        }
+
+        .benefit-list {
+            list-style: none;
+        }
+
+        .benefit-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 15px;
+        }
+
+        .benefit-list li:last-child { border-bottom: none; }
+
+        .benefit-list li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: var(--font-display);
+            font-size: clamp(28px, 4vw, 40px);
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 500px;
+            margin: 0 auto 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(184, 134, 11, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 48px 0 24px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .footer-logos {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-logos img {
+            height: 36px;
+            width: auto;
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
+        }
+
+        .footer-contact p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 4px;
+        }
+
+        .footer-contact a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 24px;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .header-inner { flex-direction: column; gap: 16px; }
+            .hero-stats { justify-content: center; text-align: center; }
+            .footer-content { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo-group">
+                    <img src="https://www.signalmutual.com/media/cerhnwrd/signal_primary_rgb.png" alt="Signal Mutual">
+                    <div class="logo-divider"></div>
+                    <img src="https://www.columbiasouthern.edu/media/campm3vj/csu-logo-horizontal.png" alt="Columbia Southern University">
+                </div>
+                <span class="header-badge">Members Helping Members</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="initiative-badge">Signal Mutual Workforce Initiative</div>
+                <h1>Building the Maritime<br><span>Workforce of Tomorrow</span></h1>
+                <p class="hero-subtitle">A Signal Mutual-led partnership delivering job-ready, safety-trained workers to member shipyards and terminals. Zero cost. Zero risk. Guaranteed qualified candidates.</p>
+                
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">100%</div>
+                        <div class="hero-stat-label">Pass Rate (Alabama Pilot)</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">10 Weeks</div>
+                        <div class="hero-stat-label">Training Program</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">$0</div>
+                        <div class="hero-stat-label">Member Training Cost</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <div class="problem-content">
+                <div class="problem-text">
+                    <h2>The Workforce Challenge No Member Can Solve Alone</h2>
+                    <p>Maritime employers face a structural workforce crisis. <strong>Baby boomer retirements outpace skilled trades recruitment.</strong> Community colleges produce candidates, but not at the skill levels shipyards require.</p>
+                    <p>Individual members can't invest in training when competitors poach graduates. The industry needs a collective solution.</p>
+                    <p><strong>Signal Mutual is coordinating that solution.</strong> By combining the resources of CTR (workforce operations), Columbia Southern University (educational credibility), and our member network, we're building a sustainable pipeline that benefits the entire Mutual.</p>
+                </div>
+                <div class="problem-visual">
+                    <div class="challenge-item">
+                        <div class="challenge-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <div>
+                            <h4>250+ Unfilled Positions</h4>
+                            <p>Newport News alone reports persistent openings across trades</p>
+                        </div>
+                    </div>
+                    <div class="challenge-item">
+                        <div class="challenge-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        </div>
+                        <div>
+                            <h4>Training Investment Risk</h4>
+                            <p>Members hesitate to train workers who may leave for competitors</p>
+                        </div>
+                    </div>
+                    <div class="challenge-item">
+                        <div class="challenge-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        </div>
+                        <div>
+                            <h4>Skills Gap</h4>
+                            <p>Community college graduates require extensive on-boarding</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container">
+            <div class="section-header">
+                <h2>Three Partners. One Solution.</h2>
+                <p>Each partner brings capabilities no single organization could provide alone</p>
+            </div>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <img src="https://www.signalmutual.com/media/cerhnwrd/signal_primary_rgb.png" alt="Signal Mutual" class="partner-logo">
+                    <h3>Signal Mutual</h3>
+                    <div class="partner-role">Initiative Leader</div>
+                    <p>Coordinates member engagement, validates safety curriculum, facilitates government funding pursuits, and ensures quality standards across the program.</p>
+                </div>
+                <div class="partner-card">
+                    <img src="https://www.columbiasouthern.edu/media/campm3vj/csu-logo-horizontal.png" alt="Columbia Southern University" class="partner-logo">
+                    <h3>Columbia Southern University</h3>
+                    <div class="partner-role">Educational Partner</div>
+                    <p>Provides accredited credentials, safety curriculum development, community college partnerships, and "labor to leader" degree pathways for career advancement.</p>
+                </div>
+                <div class="partner-card">
+                    <img data-src="ctr-logo" alt="CTR Group" class="partner-logo" style="background: #1a365d; border-radius: 8px; padding: 8px 16px;">
+                    <h3>CTR Group</h3>
+                    <div class="partner-role">Operational Partner</div>
+                    <p>Delivers training curriculum, manages payroll during training, absorbs all employment risk, and guarantees placement for program graduates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Model Section -->
+    <section class="model">
+        <div class="container">
+            <div class="section-header">
+                <h2>How the Model Works</h2>
+                <p>Zero cost. Zero risk. Job-ready workers delivered to your door.</p>
+            </div>
+            <div class="model-flow">
+                <div class="flow-step">
+                    <div class="flow-number">1</div>
+                    <h4>CTR Recruits & Hires</h4>
+                    <p>Candidates are CTR W2 employees from day one</p>
+                </div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-step">
+                    <div class="flow-number">2</div>
+                    <h4>10-Week Training</h4>
+                    <p>Employer-specific skills, safety curriculum, paid training</p>
+                </div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-step">
+                    <div class="flow-number">3</div>
+                    <h4>Competency Validation</h4>
+                    <p>100% pass rate on shipyard testing standards</p>
+                </div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-step">
+                    <div class="flow-number">4</div>
+                    <h4>Member Deployment</h4>
+                    <p>1-year evaluation period before permanent hire decision</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="member-benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why This Works for Members</h2>
+                <p>The model eliminates every barrier that's prevented collective action</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>Zero Training Risk</h4>
+                        <p>CTR absorbs all costs during training and the first year of employment. You pay only standard contracted labor rates.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>Pre-Validated Skills</h4>
+                        <p>Graduates pass your competency tests before deployment. 100% pass rate in pilot program.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>Try Before You Hire</h4>
+                        <p>One-year evaluation period as CTR employee before permanent hiring decision. No commitment until you're confident.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>Net New Workers</h4>
+                        <p>This creates new skilled workers, not reshuffling the same limited pool between competitors.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>Safety-Trained</h4>
+                        <p>Signal-validated safety curriculum integrated into every program. OSHA 10/30 certification included.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>Government Funded</h4>
+                        <p>State workforce development funding covers training costs. Alabama WIOA reimburses 50% of wages.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proof Section -->
+    <section class="proof">
+        <div class="container">
+            <div class="proof-card">
+                <div class="proof-header">
+                    <span class="proof-badge">Proof of Concept</span>
+                    <h3>Alabama Pilot: Austal USA / Electric Boat</h3>
+                </div>
+                <div class="proof-stats">
+                    <div class="proof-stat">
+                        <div class="proof-stat-value">100%</div>
+                        <div class="proof-stat-label">Pass Rate</div>
+                    </div>
+                    <div class="proof-stat">
+                        <div class="proof-stat-value">86%</div>
+                        <div class="proof-stat-label">Completion Rate</div>
+                    </div>
+                    <div class="proof-stat">
+                        <div class="proof-stat-value">10 Weeks</div>
+                        <div class="proof-stat-label">Program Length</div>
+                    </div>
+                    <div class="proof-stat">
+                        <div class="proof-stat-value">2x</div>
+                        <div class="proof-stat-label">Cohort Growth</div>
+                    </div>
+                </div>
+                <p class="proof-description">
+                    CTR partnered with Bishop State Community College and Alabama state workforce programs to train structural shipfitters for Austal USA's Electric Boat submarine module production. All trainees were CTR W2 employees from day one, eligible for WIOA wage reimbursement. The program achieved a 100% pass rate on shipyard competency testing by week 10, with graduates placed directly on the production floor. Success led to doubling the second cohort size.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education">
+        <div class="container">
+            <div class="education-content">
+                <div class="education-text">
+                    <h2>From Labor to Leader</h2>
+                    <p>The workforce pipeline doesn't end at trades training. Columbia Southern University provides pathways from entry-level work to safety leadership roles.</p>
+                    
+                    <div class="credential-card">
+                        <h4>Maritime Safety Certificate</h4>
+                        <p>Four specialized courses developed with Signal member input. Stackable credential that applies toward the bachelor's degree.</p>
+                    </div>
+                    
+                    <div class="credential-card">
+                        <h4>B.S. in Occupational Safety & Health</h4>
+                        <p>Maritime Safety Concentration. BCSP Qualified Academic Program. Pathway to CSP certification and safety management roles.</p>
+                    </div>
+                    
+                    <div class="credential-card">
+                        <h4>M.S. in Occupational Safety & Health</h4>
+                        <p>Graduate studies for safety directors and executives. 100% online, designed for working professionals.</p>
+                    </div>
+                </div>
+                
+                <div class="csu-benefits">
+                    <h3>
+                        <img src="https://www.columbiasouthern.edu/media/campm3vj/csu-logo-horizontal.png" alt="CSU">
+                        Member Benefits
+                    </h3>
+                    <ul class="benefit-list">
+                        <li>10% tuition discount for all Signal members and families</li>
+                        <li>Exclusive Signal Mutual scholarship opportunities</li>
+                        <li>$0 application fee (normally $25)</li>
+                        <li>Textbooks included in tuition</li>
+                        <li>100% online, no set class times</li>
+                        <li>Transfer credit evaluation for prior training</li>
+                        <li>GI Bill eligible for military veterans</li>
+                        <li>Employer tuition assistance coordination</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Participate?</h2>
+            <p>Signal members in Hampton Roads: Join the December meeting to discuss workforce needs and program launch.</p>
+            <div class="cta-buttons">
+                <a href="mailto:LearningPartners@ColumbiaSouthern.edu?subject=Signal%20Mutual%20Maritime%20Initiative" class="btn-primary">Contact Us</a>
+                <a href="https://www.columbiasouthern.edu/signal-mutual/" class="btn-secondary">View CSU Programs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logos">
+                    <img src="https://www.signalmutual.com/media/cerhnwrd/signal_primary_rgb.png" alt="Signal Mutual">
+                    <img src="https://www.columbiasouthern.edu/media/campm3vj/csu-logo-horizontal.png" alt="CSU">
+                </div>
+                <div class="footer-contact">
+                    <p>Questions? Email <a href="mailto:LearningPartners@ColumbiaSouthern.edu">LearningPartners@ColumbiaSouthern.edu</a></p>
+                    <p>Or call <a href="tel:8773476050">(877) 347-6050</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Signal Mutual × Columbia Southern University. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
