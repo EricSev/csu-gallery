@@ -1,0 +1,113 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Signal Mutual × Columbia Southern University</title>
+  <style>
+/* CSU brand-aligned minimal CSS */
+:root {
+  --csu-navy: #002855;
+  --csu-gold: #C6AA76;
+  --csu-neutral: #1D252D;
+  --csu-light: #DDE5ED;
+  --white: #FFFFFF;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--csu-neutral);
+  font-family: Helvetica, Arial, sans-serif; /* Web-safe per CSU field guide */
+  line-height: 1.5;
+}
+.skip-link {
+  position: absolute; left: -9999px; top: auto;
+}
+.skip-link:focus {
+  left: 1rem; top: 1rem; background: var(--white); color: var(--csu-navy);
+  padding: .5rem .75rem; border: 2px solid var(--csu-navy);
+}
+header { background: var(--csu-navy); color: var(--white); }
+.header-inner {
+  max-width: 1100px; margin: 0 auto; padding: 1.25rem;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+}
+.brand { font-family: Cambria, Georgia, serif; font-size: 1.25rem; letter-spacing: .3px; }
+nav a { color: var(--white); text-decoration: none; padding: .5rem .75rem; border-radius: 4px; }
+nav a.cta { background: var(--csu-gold); color: var(--csu-navy); font-weight: 700; }
+main { max-width: 1100px; margin: 0 auto; padding: 1.5rem; }
+.hero {
+  background: linear-gradient(135deg, var(--csu-navy), #0b3a78); color: var(--white);
+  padding: 2.25rem 1.5rem; border-bottom: 4px solid var(--csu-gold);
+}
+.hero h1 { font-family: Cambria, Georgia, serif; margin: 0 0 .5rem; font-size: 2rem; }
+.hero p { max-width: 760px; margin: 0.25rem 0 0; }
+.metrics { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin-top: 1rem; }
+.metric { background: var(--white); color: var(--csu-navy); padding: 1rem; border-left: 4px solid var(--csu-gold); border-radius: 6px; }
+.metric .num { font-size: 1.75rem; font-weight: 800; }
+section { margin: 2rem 0; }
+section h2 { font-family: Cambria, Georgia, serif; font-size: 1.6rem; margin-bottom: .5rem; color: var(--csu-navy); }
+.card-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.card { border: 1px solid var(--csu-light); border-radius: 8px; padding: 1rem; background: var(--white); }
+.card h3 { margin-top: 0; color: var(--csu-navy); }
+.list { list-style: disc; padding-left: 1.25rem; }
+.cta-row { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1rem; }
+.btn { display: inline-block; text-decoration: none; padding: .6rem .9rem; border-radius: 4px; font-weight: 700; }
+.btn-primary { background: var(--csu-gold); color: var(--csu-navy); }
+.btn-secondary { border: 2px solid var(--csu-navy); color: var(--csu-navy); background: transparent; }
+.notice { background: var(--csu-light); padding: .75rem; border-left: 4px solid var(--csu-navy); border-radius: 4px; }
+footer { background: var(--csu-light); padding: 1.25rem; }
+footer .footer-inner { max-width: 1100px; margin: 0 auto; font-size: .95rem; }
+small { color: #404a52; }
+hr { border: none; border-top: 1px solid var(--csu-light); margin: 1.5rem 0; }
+@media (prefers-color-scheme: dark) {
+  body { background: #0c1116; color: #e6eef6; }
+  .card, .metric { background: #101a25; color: #e6eef6; }
+  .notice { background: #0f1a26; }
+  footer { background: #0f1a26; }
+}
+
+  .hub { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+  .hub h1 { font-family: Cambria, Georgia, serif; color: var(--csu-navy); }
+  .link-cards { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .link-card { border: 1px solid var(--csu-light); border-radius: 8px; padding: 1rem; background: var(--white); }
+  .link-card h2 { margin-top: 0; font-size: 1.2rem; color: var(--csu-navy); }
+  .link-card p { margin-bottom: .75rem; }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header>
+  <div class="header-inner">
+    <div class="brand" aria-label="Columbia Southern University">Columbia Southern University × Signal Mutual</div>
+    <nav aria-label="Primary">
+      <a class="cta" href="claude-ctr.revised.html">Workforce Initiative</a>
+      <a class="cta" href="claude-sm.revised.html">Maritime Safety Education</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="hub">
+  <h1>Signal Mutual Learning Partner Hub</h1>
+  <p>Access the two brand-aligned pages developed for Signal Mutual: the CTR workforce initiative and the Maritime Safety education program.</p>
+  <div class="link-cards">
+    <article class="link-card">
+      <h2>Maritime Workforce Initiative (Signal × CSU × CTR)</h2>
+      <p>Zero-cost, zero-risk pipeline delivering job-ready, safety-trained workers to member shipyards and terminals.</p>
+      <a class="btn btn-primary" href="mscopilot-ctr.revised.html">Open Workforce Initiative</a>
+    </article>
+    <article class="link-card">
+      <h2>Maritime Safety Education (Signal × CSU)</h2>
+      <p>Industry-designed certificate and bachelor’s pathways recognized by BCSP, built for maritime employers.</p>
+      <a class="btn btn-primary" href="mscopilot-sm.revised.html">Open Safety Education</a>
+    </article>
+  </div>
+</main>
+<footer>
+  <div class="footer-inner">
+    <small>Columbia Southern University is accredited by the Southern Association of Colleges and Schools Commission on Colleges (SACSCOC) to award associate, baccalaureate, master’s and doctorate degrees, and certificates.</small>
+  </div>
+</footer>
+</body>
+</html>
