@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page Structural Comparison: ANA vs. Signal Mutual</title>
+    <style>
+        :root {
+            --csu-navy: #002855;
+            --csu-gold: #C4A000;
+            --dark-gray: #333333;
+            --med-gray: #666666;
+            --light-gray: #E5E5E5;
+            --green-check: #27ae60;
+            --red-x: #c0392b;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #fff;
+        }
+        
+        h1 {
+            color: var(--csu-navy);
+            font-size: 28px;
+            margin-bottom: 10px;
+            padding-top: 30px;
+            border-bottom: 2px solid var(--csu-navy);
+            padding-bottom: 10px;
+        }
+        
+        h1:first-of-type {
+            padding-top: 0;
+        }
+        
+        h2 {
+            color: var(--csu-navy);
+            font-size: 20px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        
+        h3 {
+            color: var(--dark-gray);
+            font-size: 16px;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .title-section {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid var(--csu-navy);
+        }
+        
+        .title-section h1 {
+            font-size: 36px;
+            border: none;
+            padding-bottom: 0;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            color: var(--med-gray);
+            font-size: 18px;
+            font-style: italic;
+        }
+        
+        .org-name {
+            color: var(--csu-navy);
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 13px;
+        }
+        
+        th {
+            background-color: var(--csu-navy);
+            color: white;
+            font-weight: bold;
+            text-align: left;
+            padding: 12px 10px;
+        }
+        
+        td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            vertical-align: top;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .check {
+            color: var(--green-check);
+            font-weight: bold;
+        }
+        
+        .check-cell {
+            background-color: #e8f5e9;
+        }
+        
+        .x {
+            color: var(--red-x);
+            font-weight: bold;
+        }
+        
+        .x-cell {
+            background-color: #ffebee;
+        }
+        
+        ul {
+            margin: 15px 0 15px 25px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .label {
+            font-weight: bold;
+        }
+        
+        .section-num {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-color: var(--csu-navy);
+            color: white;
+            text-align: center;
+            line-height: 24px;
+            border-radius: 50%;
+            font-size: 12px;
+            margin-right: 8px;
+        }
+        
+        .page-break {
+            page-break-before: always;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .executive-summary {
+            background-color: #f5f7fa;
+            padding: 20px;
+            border-left: 4px solid var(--csu-navy);
+            margin: 20px 0;
+        }
+        
+        .guidance-box {
+            background-color: #fffbeb;
+            border: 1px solid var(--csu-gold);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .guidance-box h3 {
+            color: var(--csu-navy);
+            margin-top: 0;
+        }
+        
+        code {
+            font-family: 'Courier New', monospace;
+            background-color: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+        
+        @media print {
+            body {
+                padding: 20px;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="title-section">
+        <h1>Landing Page Structural Comparison</h1>
+        <div class="subtitle">ANA vs. Signal Mutual</div>
+        <div class="org-name">Columbia Southern University Learning Partner Pages</div>
+    </div>
+
+    <h1>Executive Summary</h1>
+    <div class="executive-summary">
+        <p>CSU's learning partner landing pages have the potential to turn employer partnerships into student enrollments by giving prospects a customized starting point. Today the learning partner landing pages are cumbersome to create and maintain.</p>
+        <p><span class="label">Goal:</span> Lower the time and effort to create and maintain learning partner landing pages.</p>
+        <p style="margin-bottom: 0;"><span class="label">Objective:</span> Build a landing page builder for business units that streamlines collaboration with marketing by capturing detailed, structured requests while completing much of the production work upfront. The tool would guide users through module selection (partner benefits, lead forms, Why Choose CSU, video testimonials, tuition tables, FAQ sections, CTA banners), section arrangement, and content entry, with locked standard elements (welcome bar, header, footer, consent disclosures) applied automatically. Automated checks would validate content against CSU branding guidelines and copy compliance rules, with AI flagging issues before submission. Business units would deliver marketing a near-complete page rather than a request to interpret, reducing back-and-forth and shifting marketing's role from production to final review and publication.</p>
+    </div>
+
+    <h1>ANA Page Structure</h1>
+    <p><span class="label">URL:</span> columbiasouthern.edu/landing-pages/learning-partners/ana/</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 40px; text-align: center;">#</th>
+                <th style="width: 180px;">Section</th>
+                <th>Content</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="text-align: center;">1</td>
+                <td><strong>Welcome Bar</strong></td>
+                <td>Dark banner: "Welcome, American Nurses Association." + "Let's Get Started" button</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">2</td>
+                <td><strong>Header</strong></td>
+                <td>CSU logo (vertical white variant on dark background)</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">3</td>
+                <td><strong>Hero Banner</strong></td>
+                <td>H1: "Higher Ed" with subtitle "For Nurses by Nurses"</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">4</td>
+                <td><strong>Program Content + Form</strong></td>
+                <td>Two-column: Program description with ANA logo + list of 8 nursing degree programs (left), Lead form (right)</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">5</td>
+                <td><strong>Why Choose CSU</strong></td>
+                <td>8-item bullet list of institutional benefits (100% online, no login times, 11 start dates, affordability stats, nursing scholarship)</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">6</td>
+                <td><strong>ANA Partnership Box</strong></td>
+                <td>Partner-specific benefits: 10% tuition discount, Learning Partner Scholarship eligibility, no application cost</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">7</td>
+                <td><strong>Video Testimonial</strong></td>
+                <td>Embedded YouTube video (CSU graduate testimonial)</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">8</td>
+                <td><strong>Tuition Comparison Table</strong></td>
+                <td>Full comparison table: CSU vs. 10 competitors with tuition per credit hour, total credits, textbook costs, fees</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">9</td>
+                <td><strong>Secondary CTA Banner</strong></td>
+                <td>"See yourself at CSU?" + "Get Started Today" button anchored to form</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">10</td>
+                <td><strong>Footnotes + Disclaimers</strong></td>
+                <td>Extensive section: affordability source, debt stats source, discount terms, nursing program disclaimers (state authorization, licensure, NLN CNEA pre-accreditation)</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">11</td>
+                <td><strong>Footer</strong></td>
+                <td>Copyright, address, Privacy Policy link (minimal footer)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="page-break">
+        <h1>Signal Mutual Page Structure</h1>
+    </div>
+    <p><span class="label">URL:</span> columbiasouthern.edu/signal-mutual</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 40px; text-align: center;">#</th>
+                <th style="width: 180px;">Section</th>
+                <th>Content</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="text-align: center;">1</td>
+                <td><strong>Header</strong></td>
+                <td>CSU logo (horizontal) + "Apply Now" button</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">2</td>
+                <td><strong>Hero Banner</strong></td>
+                <td>Full-width background image + H1: "Signal Mutual"</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">3</td>
+                <td><strong>Benefits + Form</strong></td>
+                <td>Two-column: Benefits card with logo + 3 benefits + supporting copy (left), Lead form (right)</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">4</td>
+                <td><strong>FAQ Accordion</strong></td>
+                <td>4 collapsible Q&A items about transfer credits, enrollment, and support contacts</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">5</td>
+                <td><strong>Value Props</strong></td>
+                <td>Three image cards: Affordable, Quality and Flexibility, Supportive Culture</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">6</td>
+                <td><strong>Tuition Comparison</strong></td>
+                <td>Dark banner promoting SaveWithCSU.com calculator + 3 bullet points</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">7</td>
+                <td><strong>CSU by Numbers</strong></td>
+                <td>Four statistics: 450+ courses, 129 programs, 82 countries, $0 textbooks</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">8</td>
+                <td><strong>Accreditations</strong></td>
+                <td>Logo grid: SACSCOC, Quality Matters, ACBSP, Blackboard Catalyst, Military Top Colleges</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">9</td>
+                <td><strong>Footer</strong></td>
+                <td>Decorative background, CSU shield logo, copyright, address, phone, Privacy Policy</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="page-break">
+        <h1>Section-by-Section Comparison</h1>
+    </div>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Component</th>
+                <th>ANA</th>
+                <th>Signal Mutual</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Welcome Bar</strong></td>
+                <td class="check-cell"><span class="check">✓ Yes</span></td>
+                <td class="x-cell"><span class="x">✗ No</span></td>
+            </tr>
+            <tr>
+                <td><strong>Header CTA Text</strong></td>
+                <td>"Let's Get Started"</td>
+                <td>"Apply Now"</td>
+            </tr>
+            <tr>
+                <td><strong>Hero Headline Style</strong></td>
+                <td>Tagline-focused ("Higher Ed For Nurses by Nurses")</td>
+                <td>Partner name only ("Signal Mutual")</td>
+            </tr>
+            <tr>
+                <td><strong>Main Content Focus</strong></td>
+                <td>Program-specific (8 nursing degrees listed)</td>
+                <td>Benefits-focused (discount, scholarship, family)</td>
+            </tr>
+            <tr>
+                <td><strong>Why Choose CSU Section</strong></td>
+                <td class="check-cell"><span class="check">✓ Yes (8 bullets)</span></td>
+                <td class="x-cell"><span class="x">✗ No</span></td>
+            </tr>
+            <tr>
+                <td><strong>Video Testimonial</strong></td>
+                <td class="check-cell"><span class="check">✓ Yes</span></td>
+                <td class="x-cell"><span class="x">✗ No</span></td>
+            </tr>
+            <tr>
+                <td><strong>FAQ Accordion</strong></td>
+                <td class="x-cell"><span class="x">✗ No</span></td>
+                <td class="check-cell"><span class="check">✓ Yes (4 questions)</span></td>
+            </tr>
+            <tr>
+                <td><strong>Value Prop Cards</strong></td>
+                <td class="x-cell"><span class="x">✗ No</span></td>
+                <td class="check-cell"><span class="check">✓ Yes (3 cards)</span></td>
+            </tr>
+            <tr>
+                <td><strong>Tuition Comparison</strong></td>
+                <td>Full table (11 schools, 5 columns)</td>
+                <td>Promotional banner only</td>
+            </tr>
+            <tr>
+                <td><strong>CSU by Numbers</strong></td>
+                <td class="x-cell"><span class="x">✗ No</span></td>
+                <td class="check-cell"><span class="check">✓ Yes (4 stats)</span></td>
+            </tr>
+            <tr>
+                <td><strong>Accreditations Section</strong></td>
+                <td class="x-cell"><span class="x">✗ No</span></td>
+                <td class="check-cell"><span class="check">✓ Yes (5 logos)</span></td>
+            </tr>
+            <tr>
+                <td><strong>Secondary CTA Banner</strong></td>
+                <td class="check-cell"><span class="check">✓ Yes</span></td>
+                <td class="x-cell"><span class="x">✗ No</span></td>
+            </tr>
+            <tr>
+                <td><strong>Footnotes/Disclaimers</strong></td>
+                <td>Extensive (6 disclaimers including nursing-specific)</td>
+                <td>Minimal (inline consent only)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="page-break">
+        <h1>Key Structural Differences</h1>
+    </div>
+
+    <h2>1. Content Depth vs. Trust Signals</h2>
+    <p><span class="label">ANA:</span> Prioritizes program-specific content with a detailed list of 8 nursing degree programs and a comprehensive tuition comparison table. This approach serves prospects who are researching specific educational pathways and need detailed cost information to make decisions.</p>
+    <p><span class="label">Signal Mutual:</span> Prioritizes institutional trust signals with the "CSU by Numbers" statistics, accreditation logos, and value proposition cards. This approach serves prospects who may be less familiar with CSU and need broader validation before engaging.</p>
+
+    <h2>2. FAQ vs. Video Social Proof</h2>
+    <p><span class="label">ANA:</span> Uses embedded video testimonial for social proof. No FAQ section. Relies on the comprehensive content to preemptively address questions.</p>
+    <p><span class="label">Signal Mutual:</span> Uses FAQ accordion to address common questions about transfer credits, enrollment timing, and support contacts. No video testimonial.</p>
+
+    <h2>3. Tuition Comparison Approach</h2>
+    <p><span class="label">ANA:</span> Full comparison table showing CSU against 10 competitors (Chamberlain, WGU, Purdue Global, Rasmussen, GCU, SNHU, Walden, Capella, Phoenix, Herzing) with detailed cost breakdowns. Highly persuasive for cost-conscious nursing students.</p>
+    <p><span class="label">Signal Mutual:</span> Simple promotional banner directing users to SaveWithCSU.com calculator. Less detailed but cleaner visual presentation.</p>
+
+    <h2>4. Regulatory Compliance</h2>
+    <p><span class="label">ANA:</span> Extensive disclaimers section required for nursing programs including state authorization status, licensure limitations, NLN CNEA pre-accreditation disclosure, and career outcome caveats.</p>
+    <p><span class="label">Signal Mutual:</span> Minimal compliance requirements with only standard consent disclosure in the form.</p>
+
+    <h2>5. Header Design</h2>
+    <p><span class="label">ANA:</span> Two-tier header with dark welcome bar featuring partner name and CTA, plus logo bar below. More prominent partner recognition.</p>
+    <p><span class="label">Signal Mutual:</span> Single-tier header with logo and Apply Now button. Cleaner but less partner-specific.</p>
+
+    <h1>Template Selection Guidance</h1>
+
+    <div class="guidance-box">
+        <h3>Use the ANA pattern when:</h3>
+        <ul>
+            <li>The partner serves a specific profession (nursing, fire science, criminal justice)</li>
+            <li>CSU offers specialized degree programs for that profession</li>
+            <li>Competitive tuition comparison is favorable and verifiable</li>
+            <li>Regulatory disclaimers are required (healthcare, education)</li>
+            <li>Video testimonials from the target profession are available</li>
+        </ul>
+    </div>
+
+    <div class="guidance-box">
+        <h3>Use the Signal Mutual pattern when:</h3>
+        <ul>
+            <li>The partner serves a general workforce (insurance, manufacturing, associations)</li>
+            <li>Prospects may choose from the full program catalog</li>
+            <li>Building broad institutional trust is the priority</li>
+            <li>FAQ-based objection handling is preferred</li>
+            <li>A cleaner, shorter page is desired</li>
+        </ul>
+    </div>
+
+    <div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #ddd; color: #999; font-size: 12px; text-align: center;">
+        Columbia Southern University | Learning Partner Landing Page Template Documentation
+    </div>
+
+</body>
+</html>

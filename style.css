@@ -171,6 +171,62 @@ header h1 {
 }
 
 /* ============================================
+   DOCUMENTATION CARD VARIANT
+============================================ */
+
+.card-docs {
+    cursor: default;
+}
+
+.card-docs:hover {
+    transform: none;
+}
+
+.card-label {
+    aspect-ratio: 16 / 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--accent-muted) 100%);
+    border-bottom: 1px solid var(--border);
+}
+
+.card-label span {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.5rem;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+}
+
+.doc-links {
+    list-style: none;
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.doc-links li a {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: var(--accent);
+    text-decoration: none;
+    padding: 8px 12px;
+    background: var(--accent-muted);
+    border-radius: 6px;
+    transition: background var(--transition), transform var(--transition);
+}
+
+.doc-links li a:hover {
+    background: var(--border);
+    transform: translateX(4px);
+}
+
+.card-tags span.tag {
+    pointer-events: none;
+}
+
+/* ============================================
    FOOTER
 ============================================ */
 
