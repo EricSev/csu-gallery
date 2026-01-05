@@ -1,0 +1,195 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maritime Workforce Initiative — Signal × CSU × CTR</title>
+  <style>
+/* CSU brand-aligned minimal CSS */
+:root {
+  --csu-navy: #002855;
+  --csu-gold: #C6AA76;
+  --csu-neutral: #1D252D;
+  --csu-light: #DDE5ED;
+  --white: #FFFFFF;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--csu-neutral);
+  font-family: Helvetica, Arial, sans-serif; /* Web-safe per CSU field guide */
+  line-height: 1.5;
+}
+.skip-link {
+  position: absolute; left: -9999px; top: auto;
+}
+.skip-link:focus {
+  left: 1rem; top: 1rem; background: var(--white); color: var(--csu-navy);
+  padding: .5rem .75rem; border: 2px solid var(--csu-navy);
+}
+header { background: var(--csu-navy); color: var(--white); }
+.header-inner {
+  max-width: 1100px; margin: 0 auto; padding: 1.25rem;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+}
+.brand { font-family: Cambria, Georgia, serif; font-size: 1.25rem; letter-spacing: .3px; }
+nav a { color: var(--white); text-decoration: none; padding: .5rem .75rem; border-radius: 4px; }
+nav a.cta { background: var(--csu-gold); color: var(--csu-navy); font-weight: 700; }
+main { max-width: 1100px; margin: 0 auto; padding: 1.5rem; }
+.hero {
+  background: linear-gradient(135deg, var(--csu-navy), #0b3a78); color: var(--white);
+  padding: 2.25rem 1.5rem; border-bottom: 4px solid var(--csu-gold);
+}
+.hero h1 { font-family: Cambria, Georgia, serif; margin: 0 0 .5rem; font-size: 2rem; }
+.hero p { max-width: 760px; margin: 0.25rem 0 0; }
+.metrics { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin-top: 1rem; }
+.metric { background: var(--white); color: var(--csu-navy); padding: 1rem; border-left: 4px solid var(--csu-gold); border-radius: 6px; }
+.metric .num { font-size: 1.75rem; font-weight: 800; }
+section { margin: 2rem 0; }
+section h2 { font-family: Cambria, Georgia, serif; font-size: 1.6rem; margin-bottom: .5rem; color: var(--csu-navy); }
+.card-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.card { border: 1px solid var(--csu-light); border-radius: 8px; padding: 1rem; background: var(--white); }
+.card h3 { margin-top: 0; color: var(--csu-navy); }
+.list { list-style: disc; padding-left: 1.25rem; }
+.cta-row { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1rem; }
+.btn { display: inline-block; text-decoration: none; padding: .6rem .9rem; border-radius: 4px; font-weight: 700; }
+.btn-primary { background: var(--csu-gold); color: var(--csu-navy); }
+.btn-secondary { border: 2px solid var(--csu-navy); color: var(--csu-navy); background: transparent; }
+.notice { background: var(--csu-light); padding: .75rem; border-left: 4px solid var(--csu-navy); border-radius: 4px; }
+footer { background: var(--csu-light); padding: 1.25rem; }
+footer .footer-inner { max-width: 1100px; margin: 0 auto; font-size: .95rem; }
+small { color: #404a52; }
+hr { border: none; border-top: 1px solid var(--csu-light); margin: 1.5rem 0; }
+@media (prefers-color-scheme: dark) {
+  body { background: #0c1116; color: #e6eef6; }
+  .card, .metric { background: #101a25; color: #e6eef6; }
+  .notice { background: #0f1a26; }
+  footer { background: #0f1a26; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header>
+  <div class="header-inner">
+    <div class="brand" aria-label="Columbia Southern University">Signal Mutual × Columbia Southern University × CTR</div>
+    <nav aria-label="Primary">
+      <a class="cta" href="mailto:LearningPartners@ColumbiaSouthern.edu?subject=Signal%20Mutual%20Workforce%20Initiative">Contact Us</a>
+      <a href="https://www.columbiasouthern.edu/signal-mutual/" target="_blank" rel="noopener">View CSU Programs</a>
+      <a href="index.html">Back to Hub</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <section class="hero" role="banner">
+    <h1>Building the Maritime Workforce of Tomorrow</h1>
+    <p>A Signal Mutual–led partnership delivering job‑ready, safety‑trained workers to member shipyards and terminals. Zero cost. Zero risk. Guaranteed qualified candidates.</p>
+    <div class="metrics" aria-label="Program highlights">
+      <div class="metric" aria-label="100 percent pass rate">
+        <div class="num">100%</div>
+        <div>Pass Rate (Alabama pilot)</div>
+      </div>
+      <div class="metric" aria-label="10 weeks training">
+        <div class="num">10 Weeks</div>
+        <div>Training Program</div>
+      </div>
+      <div class="metric" aria-label="zero training cost">
+        <div class="num">$0</div>
+        <div>Member Training Cost</div>
+      </div>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:LearningPartners@ColumbiaSouthern.edu?subject=Signal%20Mutual%20Workforce%20Initiative">Email an Enrollment Counselor</a>
+      <a class="btn btn-secondary" href="tel:8773476050" aria-label="Call 877-347-6050">Call (877) 347‑6050</a>
+    </div>
+  </section>
+
+  <section aria-labelledby="challenge">
+    <h2 id="challenge">The Workforce Challenge No Member Can Solve Alone</h2>
+    <p>Maritime employers face a structural workforce shortage. Retirements outpace skilled trades recruitment. Community colleges graduate candidates, but most require extensive onboarding. Individual members hesitate to invest in training when competitors can hire their graduates.</p>
+    <p>Signal Mutual coordinates the collective solution. With CTR (operations), Columbia Southern University (education), and the Signal member network, we are building a sustainable pipeline that benefits the entire Mutual.</p>
+    <div class="card-grid" role="list">
+      <article class="card" role="listitem"><h3>250+ Unfilled Positions</h3><p>Newport News alone reports persistent openings across trades.</p></article>
+      <article class="card" role="listitem"><h3>Training Investment Risk</h3><p>Members hesitate to train workers who may leave for competitors.</p></article>
+      <article class="card" role="listitem"><h3>Skills Gap</h3><p>Graduates require significant onboarding to meet shipyard standards.</p></article>
+    </div>
+  </section>
+
+  <section aria-labelledby="partners">
+    <h2 id="partners">Three Partners. One Solution.</h2>
+    <div class="card-grid" role="list">
+      <article class="card" role="listitem">
+        <h3>Signal Mutual — Initiative Leader</h3>
+        <p>Engages members, validates safety curriculum, pursues government funding, and enforces program quality.</p>
+      </article>
+      <article class="card" role="listitem">
+        <h3>Columbia Southern University — Educational Partner</h3>
+        <p>Provides accredited credentials, safety curriculum development, community college partnerships, and labor‑to‑leader degree pathways.</p>
+      </article>
+      <article class="card" role="listitem">
+        <h3>CTR Group — Operational Partner</h3>
+        <p>Recruits and hires, delivers training, carries payroll during training, absorbs employment risk, and guarantees placement.</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="model">
+    <h2 id="model">How the Model Works</h2>
+    <div class="card-grid">
+      <article class="card"><h3>1) CTR Recruits & Hires</h3><p>Candidates are CTR W‑2 employees from day one.</p></article>
+      <article class="card"><h3>2) 10‑Week Training</h3><p>Employer‑specific skills and Signal‑validated safety curriculum. Paid training.</p></article>
+      <article class="card"><h3>3) Competency Validation</h3><p>Graduates pass shipyard testing standards before deployment.</p></article>
+      <article class="card"><h3>4) Member Deployment</h3><p>One‑year evaluation period as CTR employees before permanent hire.</p></article>
+    </div>
+  </section>
+
+  <section aria-labelledby="benefits">
+    <h2 id="benefits">Why This Works for Members</h2>
+    <ul class="list">
+      <li><strong>Zero training risk:</strong> CTR covers all costs during training and the first year of employment. Members pay standard contracted labor rates.</li>
+      <li><strong>Pre‑validated skills:</strong> 100% pass rate in pilot program.</li>
+      <li><strong>Try before you hire:</strong> Evaluate for one year as CTR employees.</li>
+      <li><strong>Net new workers:</strong> Grows the labor pool instead of reshuffling talent.</li>
+      <li><strong>Safety‑trained:</strong> Signal‑validated safety curriculum with OSHA 10/30.</li>
+      <li><strong>Government funded:</strong> State workforce development programs cover training costs; Alabama WIOA reimburses 50% of wages for eligible hires.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="pilot">
+    <h2 id="pilot">Proof of Concept: Alabama Pilot (Austal USA / Electric Boat)</h2>
+    <div class="metrics">
+      <div class="metric"><div class="num">100%</div><div>Pass Rate</div></div>
+      <div class="metric"><div class="num">86%</div><div>Completion Rate</div></div>
+      <div class="metric"><div class="num">10 Weeks</div><div>Program Length</div></div>
+      <div class="metric"><div class="num">2×</div><div>Cohort Growth</div></div>
+    </div>
+    <p>CTR partnered with Bishop State Community College and Alabama state workforce programs to train structural shipfitters for Austal USA’s Electric Boat submarine module production. Trainees were CTR W‑2 employees from day one and eligible for wage reimbursement. All graduates met shipyard competency standards by week 10 and were placed directly on the production floor. Success led to doubling the second cohort.</p>
+  </section>
+
+  <section aria-labelledby="pathways">
+    <h2 id="pathways">From Labor to Leader</h2>
+    <div class="card-grid">
+      <article class="card"><h3>Maritime Safety Certificate</h3><p>Four specialized courses developed with Signal member input. Stackable; applies to the bachelor’s degree.</p></article>
+      <article class="card"><h3>B.S. in Occupational Safety & Health</h3><p>Maritime Safety Concentration; BCSP Qualified Academic Program; pathway to CSP certification.</p></article>
+      <article class="card"><h3>M.S. in Occupational Safety & Health</h3><p>Graduate studies for safety directors and executives. 100% online, built for working professionals.</p></article>
+    </div>
+    <div class="notice" role="note">
+      <strong>CSU Member Benefits:</strong> 10% tuition discount for Signal members and families · Exclusive scholarship opportunities · $0 application fee · Textbooks included · 100% online · Transfer credit evaluation · GI Bill® eligible · Employer tuition assistance coordination.
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:LearningPartners@ColumbiaSouthern.edu?subject=Signal%20Mutual%20Workforce%20Initiative">Contact CSU</a>
+      <a class="btn btn-secondary" href="https://www.columbiasouthern.edu/signal-mutual/" target="_blank" rel="noopener">Explore Programs</a>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="footer-inner">
+    <small>Columbia Southern University is accredited by the Southern Association of Colleges and Schools Commission on Colleges (SACSCOC) to award associate, baccalaureate, master’s and doctorate degrees, and certificates.</small>
+    <br/>
+    <small>GI Bill® is a registered trademark of the U.S. Department of Veterans Affairs (VA). More information about education benefits offered by VA is available at the official U.S. government website at Benefits.VA.Gov/GIBill.</small>
+  </div>
+</footer>
+</body>
+</html>

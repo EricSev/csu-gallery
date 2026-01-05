@@ -1,0 +1,190 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maritime Safety Education — Signal × CSU</title>
+  <style>
+/* CSU brand-aligned minimal CSS */
+:root {
+  --csu-navy: #002855;
+  --csu-gold: #C6AA76;
+  --csu-neutral: #1D252D;
+  --csu-light: #DDE5ED;
+  --white: #FFFFFF;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--csu-neutral);
+  font-family: Helvetica, Arial, sans-serif; /* Web-safe per CSU field guide */
+  line-height: 1.5;
+}
+.skip-link {
+  position: absolute; left: -9999px; top: auto;
+}
+.skip-link:focus {
+  left: 1rem; top: 1rem; background: var(--white); color: var(--csu-navy);
+  padding: .5rem .75rem; border: 2px solid var(--csu-navy);
+}
+header { background: var(--csu-navy); color: var(--white); }
+.header-inner {
+  max-width: 1100px; margin: 0 auto; padding: 1.25rem;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+}
+.brand { font-family: Cambria, Georgia, serif; font-size: 1.25rem; letter-spacing: .3px; }
+nav a { color: var(--white); text-decoration: none; padding: .5rem .75rem; border-radius: 4px; }
+nav a.cta { background: var(--csu-gold); color: var(--csu-navy); font-weight: 700; }
+main { max-width: 1100px; margin: 0 auto; padding: 1.5rem; }
+.hero {
+  background: linear-gradient(135deg, var(--csu-navy), #0b3a78); color: var(--white);
+  padding: 2.25rem 1.5rem; border-bottom: 4px solid var(--csu-gold);
+}
+.hero h1 { font-family: Cambria, Georgia, serif; margin: 0 0 .5rem; font-size: 2rem; }
+.hero p { max-width: 760px; margin: 0.25rem 0 0; }
+.metrics { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin-top: 1rem; }
+.metric { background: var(--white); color: var(--csu-navy); padding: 1rem; border-left: 4px solid var(--csu-gold); border-radius: 6px; }
+.metric .num { font-size: 1.75rem; font-weight: 800; }
+section { margin: 2rem 0; }
+section h2 { font-family: Cambria, Georgia, serif; font-size: 1.6rem; margin-bottom: .5rem; color: var(--csu-navy); }
+.card-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.card { border: 1px solid var(--csu-light); border-radius: 8px; padding: 1rem; background: var(--white); }
+.card h3 { margin-top: 0; color: var(--csu-navy); }
+.list { list-style: disc; padding-left: 1.25rem; }
+.cta-row { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1rem; }
+.btn { display: inline-block; text-decoration: none; padding: .6rem .9rem; border-radius: 4px; font-weight: 700; }
+.btn-primary { background: var(--csu-gold); color: var(--csu-navy); }
+.btn-secondary { border: 2px solid var(--csu-navy); color: var(--csu-navy); background: transparent; }
+.notice { background: var(--csu-light); padding: .75rem; border-left: 4px solid var(--csu-navy); border-radius: 4px; }
+footer { background: var(--csu-light); padding: 1.25rem; }
+footer .footer-inner { max-width: 1100px; margin: 0 auto; font-size: .95rem; }
+small { color: #404a52; }
+hr { border: none; border-top: 1px solid var(--csu-light); margin: 1.5rem 0; }
+@media (prefers-color-scheme: dark) {
+  body { background: #0c1116; color: #e6eef6; }
+  .card, .metric { background: #101a25; color: #e6eef6; }
+  .notice { background: #0f1a26; }
+  footer { background: #0f1a26; }
+}
+
+  .faq dt { font-weight: 700; margin-top: .75rem; color: var(--csu-navy); }
+  .faq dd { margin-left: 0; margin-bottom: .75rem; }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header>
+  <div class="header-inner">
+    <div class="brand" aria-label="Columbia Southern University">Columbia Southern University × Signal Mutual</div>
+    <nav aria-label="Primary">
+      <a class="cta" href="#enroll">Apply Now</a>
+      <a href="mailto:LearningPartners@ColumbiaSouthern.edu?subject=Signal%20Mutual%20Maritime%20Safety%20Education">Request Information</a>
+      <a href="index.html">Back to Hub</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <section class="hero" role="banner">
+    <h1>Maritime Safety Education, Built for the Industry</h1>
+    <p>The first occupational safety program developed with shipyard leaders. Earn credentials that reflect what maritime employers need from safety professionals.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#enroll">Start Your Application</a>
+      <a class="btn btn-secondary" href="mailto:LearningPartners@ColumbiaSouthern.edu?subject=Signal%20Mutual%20Maritime%20Safety%20Education">Request Information</a>
+    </div>
+  </section>
+
+  <section aria-labelledby="pathways">
+    <h2 id="pathways">Two Pathways to Maritime Safety Expertise</h2>
+    <div class="card-grid">
+      <article class="card">
+        <h3>Maritime Safety Certificate</h3>
+        <p>Four courses · Stackable credential</p>
+        <ul class="list">
+          <li>Complete in as few as two terms</li>
+          <li>All credits transfer to the bachelor’s degree</li>
+          <li>Industry‑specific OSHA applications</li>
+          <li>Immediate career impact</li>
+        </ul>
+        <a class="btn btn-secondary" href="#enroll">Learn More</a>
+      </article>
+      <article class="card">
+        <h3>B.S. in Occupational Safety & Health</h3>
+        <p>Maritime Safety Concentration</p>
+        <ul class="list">
+          <li>BCSP Qualified Academic Program</li>
+          <li>Includes all four maritime courses</li>
+          <li>Pathway to CSP certification eligibility</li>
+          <li>Leadership and management training</li>
+          <li>Graduate degree eligible</li>
+        </ul>
+        <a class="btn btn-secondary" href="#enroll">Learn More</a>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="courses">
+    <h2 id="courses">Maritime Safety Courses</h2>
+    <div class="card-grid">
+      <article class="card"><h3>OSH 2306 — Maritime Safety Standards</h3><p>OSHA maritime standards, shipyard competent person requirements, and regulatory compliance for marine operations.</p></article>
+      <article class="card"><h3>OSH 3313 — Introduction to Maritime Workers’ Compensation</h3><p>Longshore Act fundamentals, claims management, and how safety programs drive workers’ compensation outcomes.</p></article>
+      <article class="card"><h3>OSH 3314 — Special Topics in Maritime Industry</h3><p>Confined space entry, hot work, crane operations, and emerging hazards in shipyard and terminal environments.</p></article>
+      <article class="card"><h3>OSH 4314 — Materials Handling in Maritime Industry</h3><p>Rigging, lifting operations, cargo handling, and equipment safety for waterfront and ship repair operations.</p></article>
+    </div>
+  </section>
+
+  <section aria-labelledby="benefits">
+    <h2 id="benefits">Signal Mutual Member Benefits</h2>
+    <div class="card-grid">
+      <article class="card"><h3>10% Tuition Discount</h3><p>Automatically applied to eligible programs.</p></article>
+      <article class="card"><h3>Annual Scholarships</h3><p>Exclusive scholarship opportunities for Signal Mutual.</p></article>
+      <article class="card"><h3>$0 Application Fee</h3><p>Waived for members and families.</p></article>
+    </div>
+  </section>
+
+  <section aria-labelledby="initiative">
+    <h2 id="initiative">Part of a Larger Initiative</h2>
+    <p>This degree pathway is one component of Signal Mutual’s workforce initiative. In partnership with CTR and member shipyards, we are building pathways that take workers from trades training through safety leadership.</p>
+    <div class="card-grid">
+      <article class="card"><h3>1) Trades Training</h3><p>Skills development for shipyard work.</p></article>
+      <article class="card"><h3>2) Safety Certificate</h3><p>Maritime‑specific safety credentials.</p></article>
+      <article class="card"><h3>3) Bachelor’s Degree</h3><p>Full OSH degree with maritime concentration.</p></article>
+      <article class="card"><h3>4) Safety Leadership</h3><p>Management roles and graduate studies.</p></article>
+    </div>
+  </section>
+
+  <section aria-labelledby="faq">
+    <h2 id="faq">Frequently Asked Questions</h2>
+    <dl class="faq">
+      <dt>How does this program prepare me for maritime safety roles?</dt>
+      <dd>Courses were designed with input from Signal Mutual member companies representing shipyards, terminals, and maritime contractors. Each addresses OSHA maritime standards, workers’ compensation integration, confined space and hot work operations, and materials handling.</dd>
+      <dt>Can I complete courses while working rotating schedules?</dt>
+      <dd>Yes. Courses are 100% online with no set class times. Most CSU students balance full‑time employment with coursework.</dd>
+      <dt>What’s the difference between the certificate and the concentration?</dt>
+      <dd>The certificate includes four specialized courses and can be completed in approximately two terms. The B.S. in OSH with Maritime Concentration includes those same four courses within a complete bachelor’s degree, preparing you for management roles and CSP eligibility. Certificate credits transfer directly to the bachelor’s program.</dd>
+      <dt>Is CSU recognized by the Board of Certified Safety Professionals?</dt>
+      <dd>Yes. CSU’s bachelor’s and master’s programs in OSH are recognized by the Board of Certified Safety Professionals (BCSP) as Qualified Academic Programs. Graduates meet educational requirements for ASP and CSP certification eligibility.</dd>
+      <dt>Can my employer pay for this program?</dt>
+      <dd>Many Signal Mutual member companies offer tuition assistance. CSU can coordinate direct billing and deferred payment options.</dd>
+    </dl>
+  </section>
+
+  <section id="enroll" aria-labelledby="enroll-title">
+    <h2 id="enroll-title">Ready to Advance Your Safety Career?</h2>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://www.columbiasouthern.edu/signal-mutual/" target="_blank" rel="noopener">Apply Now</a>
+      <a class="btn btn-secondary" href="tel:8773476050" aria-label="Call 877-347-6050">Call (877) 347‑6050</a>
+      <a class="btn btn-secondary" href="mailto:LearningPartners@ColumbiaSouthern.edu?subject=Signal%20Mutual%20Maritime%20Safety%20Education">Email an Enrollment Counselor</a>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="footer-inner">
+    <small>Columbia Southern University is accredited by the Southern Association of Colleges and Schools Commission on Colleges (SACSCOC) to award associate, baccalaureate, master’s and doctorate degrees, and certificates.</small>
+    <br/>
+    <small>GI Bill® is a registered trademark of the U.S. Department of Veterans Affairs (VA). More information about education benefits offered by VA is available at the official U.S. government website at Benefits.VA.Gov/GIBill.</small>
+  </div>
+</footer>
+</body>
+</html>
