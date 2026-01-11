@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSU Landing Page Builder - Template Type Analysis</title>
+    <style>
+        :root {
+            --csu-navy: #002855;
+            --csu-gold: #C4A000;
+            --lp-color: #1565c0;
+            --lp-bg: #e3f2fd;
+            --cp-color: #e65100;
+            --cp-bg: #fff3e0;
+            --green: #27ae60;
+            --red: #c0392b;
+            --light-gray: #f5f5f5;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #333;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            background: #fff;
+        }
+        
+        h1 {
+            color: var(--csu-navy);
+            font-size: 26px;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        h2 {
+            color: var(--csu-navy);
+            font-size: 20px;
+            margin: 35px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--csu-navy);
+        }
+        
+        h3 {
+            color: var(--csu-navy);
+            font-size: 16px;
+            margin: 25px 0 10px;
+        }
+        
+        h4 {
+            font-size: 14px;
+            margin: 15px 0 8px;
+            color: #444;
+        }
+        
+        p { margin-bottom: 12px; }
+        
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 20px 0;
+        }
+        
+        .type-card {
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid;
+        }
+        
+        .lp-card {
+            background: var(--lp-bg);
+            border-color: var(--lp-color);
+        }
+        
+        .cp-card {
+            background: var(--cp-bg);
+            border-color: var(--cp-color);
+        }
+        
+        .type-card h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .lp-card h3 { color: var(--lp-color); }
+        .cp-card h3 { color: var(--cp-color); }
+        
+        .type-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: white;
+        }
+        
+        .lp-card .type-icon { background: var(--lp-color); }
+        .cp-card .type-icon { background: var(--cp-color); }
+        
+        .partner-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 10px 0;
+        }
+        
+        .partner-tag {
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        
+        .lp-tag { background: white; color: var(--lp-color); border: 1px solid var(--lp-color); }
+        .cp-tag { background: white; color: var(--cp-color); border: 1px solid var(--cp-color); }
+        .future-tag { background: #eee; color: #666; border: 1px solid #ccc; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 12px;
+        }
+        
+        th {
+            background: var(--csu-navy);
+            color: white;
+            padding: 10px 8px;
+            text-align: left;
+            font-weight: bold;
+        }
+        
+        td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+        }
+        
+        tr:nth-child(even) { background: #fafafa; }
+        
+        .check { color: var(--green); font-weight: bold; }
+        .x { color: #ccc; }
+        .optional { color: #666; font-style: italic; }
+        
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .module-box {
+            background: var(--light-gray);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--csu-navy);
+        }
+        
+        .module-box h4 {
+            margin-top: 0;
+            color: var(--csu-navy);
+        }
+        
+        .module-box ul {
+            margin: 8px 0 0 18px;
+            font-size: 12px;
+        }
+        
+        .module-box li { margin-bottom: 4px; }
+        
+        .locked { border-left-color: #c62828; }
+        .locked h4::before { content: "🔒 "; }
+        
+        .core { border-left-color: var(--green); }
+        .core h4::before { content: "✓ "; }
+        
+        .optional-box { border-left-color: var(--csu-gold); }
+        .optional-box h4::before { content: "➕ "; }
+        
+        .comparison-table th.lp-header { background: var(--lp-color); }
+        .comparison-table th.cp-header { background: var(--cp-color); }
+        
+        .highlight-row td { background: #fffde7 !important; font-weight: 500; }
+        
+        .decision-box {
+            background: #f0f7ff;
+            border: 1px solid #90caf9;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .decision-box h4 {
+            color: var(--lp-color);
+            margin-top: 0;
+        }
+        
+        .flow-diagram {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .flow-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 10px 0;
+        }
+        
+        .flow-box {
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .flow-source { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+        .flow-arrow { color: #999; font-size: 18px; }
+        .flow-page { background: var(--csu-navy); color: white; }
+        .flow-action { background: var(--csu-gold); color: var(--csu-navy); }
+        
+        .stat-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 25px 0;
+        }
+        
+        .stat-box {
+            text-align: center;
+            padding: 15px 25px;
+            border-radius: 8px;
+        }
+        
+        .stat-box.lp { background: var(--lp-bg); }
+        .stat-box.cp { background: var(--cp-bg); }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+        }
+        
+        .stat-box.lp .stat-number { color: var(--lp-color); }
+        .stat-box.cp .stat-number { color: var(--cp-color); }
+        
+        .stat-label {
+            font-size: 11px;
+            color: #666;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .two-col { grid-template-columns: 1fr; }
+            .stat-row { flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Landing Page Builder</h1>
+    <p class="subtitle">Template Type Analysis: Learning Partners vs. Channel Partners (Benefit Companies)</p>
+
+    <div class="stat-row">
+        <div class="stat-box lp">
+            <div class="stat-number">11</div>
+            <div class="stat-label">Learning Partners</div>
+        </div>
+        <div class="stat-box cp">
+            <div class="stat-number">9</div>
+            <div class="stat-label">Benefit Companies</div>
+        </div>
+        <div class="stat-box" style="background:#e8f5e9;">
+            <div class="stat-number" style="color:#2e7d32;">5</div>
+            <div class="stat-label">Future Partners</div>
+        </div>
+    </div>
+
+    <h2>Partner Type Definitions</h2>
+    
+    <div class="two-col">
+        <div class="type-card lp-card">
+            <h3><span class="type-icon">LP</span> Learning Partner Landing Pages</h3>
+            <p><strong>Traffic Source:</strong> Direct promotion from CSU and the partner organization</p>
+            <p><strong>Channels:</strong> Newsletters, email blasts, conferences, internal meetings, partner websites, HR communications</p>
+            <p><strong>User Context:</strong> Prospect has heard about CSU through their employer/association and is actively investigating the educational benefit</p>
+            <p><strong>Conversion Goal:</strong> Lead capture via form submission or application start</p>
+            <h4>Current Partners</h4>
+            <div class="partner-list">
+                <span class="partner-tag lp-tag">ANA</span>
+                <span class="partner-tag lp-tag">IAFC</span>
+                <span class="partner-tag lp-tag">Signal Mutual</span>
+                <span class="partner-tag lp-tag">Delta</span>
+                <span class="partner-tag lp-tag">FedEx</span>
+                <span class="partner-tag lp-tag">NAEMT</span>
+                <span class="partner-tag lp-tag">NVFC</span>
+                <span class="partner-tag lp-tag">NYPD</span>
+            </div>
+            <h4>Future Partners</h4>
+            <div class="partner-list">
+                <span class="partner-tag future-tag">Live View Technology</span>
+                <span class="partner-tag future-tag">StarCom</span>
+                <span class="partner-tag future-tag">CTR</span>
+                <span class="partner-tag future-tag">ADTC</span>
+                <span class="partner-tag future-tag">NCCER</span>
+            </div>
+        </div>
+        
+        <div class="type-card cp-card">
+            <h3><span class="type-icon">CP</span> Channel Partner (Benefit Company) Landing Pages</h3>
+            <p><strong>Traffic Source:</strong> Benefit platform portals and their marketing surfaces</p>
+            <p><strong>Channels:</strong> Employee benefit portals, perks marketplaces, benefit company newsletters, HR system integrations</p>
+            <p><strong>User Context:</strong> Employee browsing available perks, may not have prior awareness of CSU, comparing multiple education options</p>
+            <p><strong>Conversion Goal:</strong> Quick conversion with clear value proposition and simple path to action</p>
+            <h4>Current Partners</h4>
+            <div class="partner-list">
+                <span class="partner-tag cp-tag">BenefitHub</span>
+                <span class="partner-tag cp-tag">CoreStream</span>
+                <span class="partner-tag cp-tag">Paychex (via CoreStream)</span>
+                <span class="partner-tag cp-tag">EBG/TicketsatWork</span>
+                <span class="partner-tag cp-tag">Reward Gateway</span>
+                <span class="partner-tag cp-tag">Scholarship America</span>
+                <span class="partner-tag cp-tag">Perkspot</span>
+                <span class="partner-tag cp-tag">Access Development</span>
+                <span class="partner-tag cp-tag">Eplee & Associates</span>
+            </div>
+        </div>
+    </div>
+
+    <h2>Traffic Flow Comparison</h2>
+    
+    <div class="two-col">
+        <div class="flow-diagram">
+            <h4 style="color:var(--lp-color);margin-bottom:15px;">Learning Partner Flow</h4>
+            <div class="flow-row">
+                <span class="flow-box flow-source">Partner Email/Newsletter</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-box flow-page">LP Landing Page</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-box flow-action">Lead Form</span>
+            </div>
+            <div class="flow-row">
+                <span class="flow-box flow-source">Conference/Meeting</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-box flow-page">LP Landing Page</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-box flow-action">Lead Form</span>
+            </div>
+            <div class="flow-row">
+                <span class="flow-box flow-source">HR Communication</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-box flow-page">LP Landing Page</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-box flow-action">Lead Form</span>
+            </div>
+            <p style="font-size:11px;color:#666;margin-top:15px;">User arrives with context about CSU partnership</p>
+        </div>
+        
+        <div class="flow-diagram">
+            <h4 style="color:var(--cp-color);margin-bottom:15px;">Channel Partner (Benefit Company) Flow</h4>
+            <div class="flow-row">
+                <span class="flow-box flow-source">Benefits Portal</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-box flow-page">CP Landing Page</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-box flow-action">Request Info / Apply</span>
+            </div>
+            <div class="flow-row">
+                <span class="flow-box flow-source">Perks Marketplace</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-box flow-page">CP Landing Page</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-box flow-action">Request Info / Apply</span>
+            </div>
+            <div class="flow-row">
+                <span class="flow-box flow-source">Benefit Platform Email</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-box flow-page">CP Landing Page</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-box flow-action">Request Info / Apply</span>
+            </div>
+            <p style="font-size:11px;color:#666;margin-top:15px;">User browsing perks, needs quick value proposition</p>
+        </div>
+    </div>
+
+    <h2>Section Usage by Partner Type</h2>
+    
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th style="width:30px;">#</th>
+                <th style="width:200px;">Section</th>
+                <th class="lp-header" style="width:120px;">Learning Partner</th>
+                <th class="cp-header" style="width:120px;">Benefit Company</th>
+                <th>Recommendation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="5" style="background:var(--csu-gold);font-weight:bold;color:var(--csu-navy);">HEADER</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Welcome Bar</td>
+                <td class="check">1 of 8 (ANA)</td>
+                <td class="x">0 of 9</td>
+                <td class="optional">Optional - high-value LP only</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Minimal Header (logo + CTA)</td>
+                <td class="check">4 of 8</td>
+                <td class="check">5 of 9</td>
+                <td><strong>Recommended for both</strong> - reduces distraction</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Full Site Navigation</td>
+                <td class="check">4 of 8</td>
+                <td class="check">4 of 9</td>
+                <td class="optional">Optional - only if exploration expected</td>
+            </tr>
+            <tr>
+                <td colspan="5" style="background:var(--csu-gold);font-weight:bold;color:var(--csu-navy);">HERO & IDENTITY</td>
+            </tr>
+            <tr class="highlight-row">
+                <td>4</td>
+                <td>Partner Headline</td>
+                <td class="check">8 of 8</td>
+                <td class="check">9 of 9</td>
+                <td><strong>Required for both</strong> - confirms context</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Partner Logo</td>
+                <td class="check">6 of 8</td>
+                <td class="check">6 of 9</td>
+                <td><strong>Recommended for both</strong> - builds trust</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Hero Banner (background image)</td>
+                <td class="check">3 of 8</td>
+                <td class="x">0 of 9</td>
+                <td class="optional">LP Optional - adds visual impact</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Stats Banner (in hero)</td>
+                <td class="check">1 of 8 (IAFC)</td>
+                <td class="x">0 of 9</td>
+                <td class="optional">LP Optional - recruitment campaigns</td>
+            </tr>
+            <tr>
+                <td colspan="5" style="background:var(--csu-gold);font-weight:bold;color:var(--csu-navy);">BENEFITS & VALUE</td>
+            </tr>
+            <tr class="highlight-row">
+                <td>8</td>
+                <td>Benefits Copy</td>
+                <td class="check">8 of 8</td>
+                <td class="check">9 of 9</td>
+                <td><strong>Required for both</strong> - eligibility + value</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Partner Benefits Card</td>
+                <td class="check">5 of 8</td>
+                <td class="check">5 of 9</td>
+                <td><strong>Recommended for both</strong> - clear benefit summary</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Tiered Pricing Display</td>
+                <td class="check">1 of 8 (IAFC)</td>
+                <td class="x">0 of 9</td>
+                <td class="optional">LP Optional - articulation partners</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Value Prop Cards (3 cards)</td>
+                <td class="check">2 of 8</td>
+                <td class="check">5 of 9</td>
+                <td><strong>CP Recommended</strong> - builds CSU awareness</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Why Choose CSU (bullet list)</td>
+                <td class="check">1 of 8 (ANA)</td>
+                <td class="x">0 of 9</td>
+                <td class="optional">LP Optional - program-specific pages</td>
+            </tr>
+            <tr>
+                <td colspan="5" style="background:var(--csu-gold);font-weight:bold;color:var(--csu-navy);">PROGRAMS & SCHOLARSHIPS</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Degree Programs List</td>
+                <td class="check">2 of 8</td>
+                <td class="x">0 of 9</td>
+                <td><strong>LP Recommended</strong> - profession-specific partners</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Scholarship Highlight</td>
+                <td class="check">3 of 8</td>
+                <td class="x">0 of 9</td>
+                <td><strong>LP Recommended</strong> - if scholarship exists</td>
+            </tr>
+            <tr>
+                <td colspan="5" style="background:var(--csu-gold);font-weight:bold;color:var(--csu-navy);">LEAD CAPTURE</td>
+            </tr>
+            <tr class="highlight-row">
+                <td>15</td>
+                <td>Lead Capture Form</td>
+                <td class="check">4 of 8</td>
+                <td class="check">5 of 9</td>
+                <td><strong>Recommended for both</strong> - primary conversion</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>CTA Buttons Only</td>
+                <td class="check">4 of 8</td>
+                <td class="check">4 of 9</td>
+                <td>Alternative to form - simpler pages</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>Contact Info Block</td>
+                <td class="check">1 of 8 (IAFC)</td>
+                <td class="x">0 of 9</td>
+                <td class="optional">LP Optional - high-touch partners</td>
+            </tr>
+            <tr>
+                <td colspan="5" style="background:var(--csu-gold);font-weight:bold;color:var(--csu-navy);">SOCIAL PROOF & TRUST</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>FAQ Accordion</td>
+                <td class="check">1 of 8</td>
+                <td class="check">5 of 9</td>
+                <td><strong>CP Recommended</strong> - addresses objections</td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>CSU by the Numbers</td>
+                <td class="check">1 of 8</td>
+                <td class="check">5 of 9</td>
+                <td><strong>CP Recommended</strong> - builds credibility</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>Accreditations Section</td>
+                <td class="check">2 of 8</td>
+                <td class="check">5 of 9</td>
+                <td><strong>CP Recommended</strong> - trust signals</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>Video Testimonial</td>
+                <td class="check">1 of 8 (ANA)</td>
+                <td class="x">0 of 9</td>
+                <td class="optional">LP Optional - if available</td>
+            </tr>
+            <tr>
+                <td colspan="5" style="background:var(--csu-gold);font-weight:bold;color:var(--csu-navy);">TUITION & COST</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>Tuition Comparison Table</td>
+                <td class="check">1 of 8 (ANA)</td>
+                <td class="x">0 of 9</td>
+                <td class="optional">LP Optional - program-specific</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>Tuition Comparison Banner</td>
+                <td class="check">1 of 8</td>
+                <td class="check">5 of 9</td>
+                <td><strong>CP Recommended</strong> - SaveWithCSU.com</td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>Cost Calculator Widget</td>
+                <td class="x">0 of 8</td>
+                <td class="check">1 of 9</td>
+                <td class="optional">CP Optional - interactive comparison</td>
+            </tr>
+            <tr>
+                <td colspan="5" style="background:var(--csu-gold);font-weight:bold;color:var(--csu-navy);">FOOTER & COMPLIANCE</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>Secondary CTA Banner</td>
+                <td class="check">1 of 8 (ANA)</td>
+                <td class="x">0 of 9</td>
+                <td class="optional">LP Optional - long pages only</td>
+            </tr>
+            <tr>
+                <td>26</td>
+                <td>Footnotes/Disclaimers</td>
+                <td class="check">2 of 8</td>
+                <td class="x">0 of 9</td>
+                <td><strong>LP Required</strong> - regulated programs</td>
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>Minimal Footer</td>
+                <td class="check">4 of 8</td>
+                <td class="check">5 of 9</td>
+                <td><strong>Recommended for both</strong> - clean close</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Module Library by Template Type</h2>
+    
+    <h3 style="color:var(--lp-color);">Learning Partner Template Modules</h3>
+    <div class="module-grid">
+        <div class="module-box locked">
+            <h4>Locked Elements</h4>
+            <ul>
+                <li>Header (minimal recommended)</li>
+                <li>Partner Headline (H1)</li>
+                <li>Benefits Copy (templated paragraphs)</li>
+                <li>Consent Disclosure (in form)</li>
+                <li>Footer (minimal recommended)</li>
+            </ul>
+        </div>
+        <div class="module-box core">
+            <h4>Core Modules</h4>
+            <ul>
+                <li>Partner Logo</li>
+                <li>Partner Benefits Card</li>
+                <li>Lead Capture Form</li>
+                <li>Degree Programs List (profession-specific)</li>
+                <li>Scholarship Highlight (if applicable)</li>
+            </ul>
+        </div>
+        <div class="module-box optional-box">
+            <h4>Optional Modules</h4>
+            <ul>
+                <li>Welcome Bar</li>
+                <li>Hero Banner</li>
+                <li>Stats Banner</li>
+                <li>Tiered Pricing Display</li>
+                <li>Why Choose CSU</li>
+                <li>Video Testimonial</li>
+                <li>Tuition Comparison Table</li>
+                <li>Secondary CTA Banner</li>
+                <li>Contact Info Block</li>
+                <li>Footnotes/Disclaimers</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h3 style="color:var(--cp-color);">Channel Partner (Benefit Company) Template Modules</h3>
+    <div class="module-grid">
+        <div class="module-box locked">
+            <h4>Locked Elements</h4>
+            <ul>
+                <li>Header (minimal recommended)</li>
+                <li>Partner Headline (H1)</li>
+                <li>Benefits Copy (templated paragraphs)</li>
+                <li>Consent Disclosure (in form)</li>
+                <li>Footer (minimal recommended)</li>
+            </ul>
+        </div>
+        <div class="module-box core">
+            <h4>Core Modules</h4>
+            <ul>
+                <li>Partner Logo</li>
+                <li>Partner Benefits Card</li>
+                <li>Lead Capture Form</li>
+                <li>Value Prop Cards (3 cards)</li>
+                <li>FAQ Accordion</li>
+                <li>CSU by the Numbers</li>
+                <li>Accreditations Section</li>
+                <li>Tuition Comparison Banner</li>
+            </ul>
+        </div>
+        <div class="module-box optional-box">
+            <h4>Optional Modules</h4>
+            <ul>
+                <li>Full Site Navigation</li>
+                <li>Cost Calculator Widget</li>
+                <li>Looking for More Info card</li>
+                <li>Get Started Today Banner</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>Key Differences Summary</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th style="width:200px;">Attribute</th>
+                <th class="lp-header">Learning Partner</th>
+                <th class="cp-header">Benefit Company</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>User Awareness</strong></td>
+                <td>Already knows about CSU partnership</td>
+                <td>Discovering CSU as a perk option</td>
+            </tr>
+            <tr>
+                <td><strong>Primary Goal</strong></td>
+                <td>Convert warm lead</td>
+                <td>Build awareness + convert</td>
+            </tr>
+            <tr>
+                <td><strong>Content Depth</strong></td>
+                <td>Partner-specific (programs, scholarships)</td>
+                <td>Institutional (trust, credibility)</td>
+            </tr>
+            <tr>
+                <td><strong>Trust Signals</strong></td>
+                <td>Video testimonials, specific outcomes</td>
+                <td>Stats, accreditations, FAQ</td>
+            </tr>
+            <tr>
+                <td><strong>Tuition Info</strong></td>
+                <td>Detailed tables (if applicable)</td>
+                <td>SaveWithCSU.com banner</td>
+            </tr>
+            <tr>
+                <td><strong>Form Placement</strong></td>
+                <td>Prominent - primary action</td>
+                <td>Prominent - with supporting content</td>
+            </tr>
+            <tr>
+                <td><strong>Page Length</strong></td>
+                <td>Variable (short to long)</td>
+                <td>Medium (consistent structure)</td>
+            </tr>
+            <tr>
+                <td><strong>Customization Level</strong></td>
+                <td>High (partner-specific content)</td>
+                <td>Low (standardized modules)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Landing Page Builder: Template Selection Logic</h2>
+    
+    <div class="decision-box">
+        <h4>Question 1: What type of partner is this?</h4>
+        <p><strong>Learning Partner →</strong> Organization with direct CSU partnership (employer, association, union)</p>
+        <p><strong>Benefit Company →</strong> Platform aggregating employee perks for multiple employers</p>
+    </div>
+    
+    <div class="decision-box">
+        <h4>Question 2 (Learning Partners only): Is this a profession-specific partner?</h4>
+        <p><strong>Yes (nursing, fire, EMS, law enforcement) →</strong> Enable: Degree Programs List, Scholarship Highlight, Tuition Table, Disclaimers</p>
+        <p><strong>No (general workforce) →</strong> Use standard LP template with Benefits Card + Form</p>
+    </div>
+    
+    <div class="decision-box">
+        <h4>Question 3: Does the partner have special pricing tiers?</h4>
+        <p><strong>Yes →</strong> Enable: Tiered Pricing Display</p>
+        <p><strong>No →</strong> Use standard discount mention in Benefits Card</p>
+    </div>
+    
+    <div class="decision-box">
+        <h4>Question 4: Is a partner-specific scholarship available?</h4>
+        <p><strong>Yes →</strong> Enable: Scholarship Highlight module</p>
+        <p><strong>No →</strong> Mention "Exclusive Scholarship Opportunities" in Benefits Card</p>
+    </div>
+
+    <h2>Recommended Default Configurations</h2>
+    
+    <div class="two-col">
+        <div class="type-card lp-card">
+            <h3><span class="type-icon">LP</span> Learning Partner Default</h3>
+            <ol style="margin-left:20px;font-size:12px;">
+                <li>Minimal Header (logo + Apply Now)</li>
+                <li>Partner Headline</li>
+                <li>Partner Benefits Card with Logo</li>
+                <li>Benefits Copy (templated)</li>
+                <li>Lead Capture Form</li>
+                <li>Minimal Footer</li>
+            </ol>
+            <p style="font-size:11px;margin-top:10px;color:#666;"><strong>Page length:</strong> Short (above the fold focus)</p>
+        </div>
+        
+        <div class="type-card cp-card">
+            <h3><span class="type-icon">CP</span> Benefit Company Default</h3>
+            <ol style="margin-left:20px;font-size:12px;">
+                <li>Minimal Header (logo + Apply Now)</li>
+                <li>Partner Headline</li>
+                <li>Partner Benefits Card with Logo</li>
+                <li>Benefits Copy (templated)</li>
+                <li>Lead Capture Form</li>
+                <li>FAQ Accordion</li>
+                <li>Value Prop Cards (3)</li>
+                <li>Tuition Comparison Banner</li>
+                <li>CSU by the Numbers</li>
+                <li>Accreditations Section</li>
+                <li>Minimal Footer</li>
+            </ol>
+            <p style="font-size:11px;margin-top:10px;color:#666;"><strong>Page length:</strong> Medium (scroll for trust signals)</p>
+        </div>
+    </div>
+
+    <div style="margin-top:40px;padding-top:20px;border-top:1px solid #ddd;text-align:center;color:#999;font-size:11px;">
+        Columbia Southern University | Landing Page Builder Analysis | January 2026
+    </div>
+
+</body>
+</html>
